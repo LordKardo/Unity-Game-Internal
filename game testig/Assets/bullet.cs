@@ -6,10 +6,20 @@ public class bullet : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
+    public int damage = 30;
   
     void Start()
     {
         rb.velocity = transform.right * speed;
     }
 
+    void OnTriggerEnter2D (Collider2D hitInfo)
+    {
+     HealthDamage enemy = hitinfo.GetComponenet<HealthDamage>();
+     if (enemy != null) 
+     {
+         enemy.TakeDamage(damage);
+     }
+        
+    }
 }
