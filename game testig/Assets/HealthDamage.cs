@@ -12,8 +12,14 @@ public class HealthDamage : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy.gameObject();
+            Die();
+
         }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
   
